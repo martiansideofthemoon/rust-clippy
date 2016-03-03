@@ -8,7 +8,7 @@ A collection of lints to catch common mistakes and improve your Rust code.
 [Jump to usage instructions](#usage)
 
 ##Lints
-There are 129 lints included in this crate:
+There are 130 lints included in this crate:
 
 name                                                                                                                 | default | meaning
 ---------------------------------------------------------------------------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -29,6 +29,7 @@ name                                                                            
 [chars_next_cmp](https://github.com/Manishearth/rust-clippy/wiki#chars_next_cmp)                                     | warn    | using `.chars().next()` to check if a string starts with a char
 [clone_double_ref](https://github.com/Manishearth/rust-clippy/wiki#clone_double_ref)                                 | warn    | using `clone` on `&&T`
 [clone_on_copy](https://github.com/Manishearth/rust-clippy/wiki#clone_on_copy)                                       | warn    | using `clone` on a `Copy` type
+[closure_called_early](https://github.com/Manishearth/rust-clippy/wiki#closure_called_early)                         | warn    | Closures should not be called in the expression they are defined
 [cmp_nan](https://github.com/Manishearth/rust-clippy/wiki#cmp_nan)                                                   | deny    | comparisons to NAN (which will always return false, which is probably not intended)
 [cmp_owned](https://github.com/Manishearth/rust-clippy/wiki#cmp_owned)                                               | warn    | creating owned instances for comparing with others, e.g. `x == "foo".to_string()`
 [collapsible_if](https://github.com/Manishearth/rust-clippy/wiki#collapsible_if)                                     | warn    | two nested `if`-expressions can be collapsed into one, e.g. `if x { if y { foo() } }` can be written as `if x && y { foo() }` and an `else { if .. } expression can be collapsed to `else if`

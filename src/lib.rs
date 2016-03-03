@@ -271,6 +271,7 @@ pub fn plugin_registrar(reg: &mut Registry) {
         misc::REDUNDANT_PATTERN,
         misc::TOPLEVEL_REF_ARG,
         misc::USED_UNDERSCORE_BINDING,
+        misc_early::CLOSURE_CALLED_EARLY,
         misc_early::DUPLICATE_UNDERSCORE_ARGUMENT,
         misc_early::UNNEEDED_FIELD_PATTERN,
         mut_reference::UNNECESSARY_MUT_PASSED,

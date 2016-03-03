@@ -29,12 +29,24 @@ declare_lint! {
     "Function arguments having names which only differ by an underscore"
 }
 
+/// **What it does:** This lint detects closures called in the same expression where they are defined.
+///
+/// **Why is this bad?** It unecessarily adding to the expression's complexity.
+///
+/// **Known problems:** None.
+///
+/// **Example:** `(|| 42)()`
+declare_lint! {
+    pub CLOSURE_CALLED_EARLY, Warn,
+    "Closures should not be called in the expression they are defined"
+}
+
 #[derive(Copy, Clone)]
 pub struct MiscEarly;
 
 impl LintPass for MiscEarly {
     fn get_lints(&self) -> LintArray {
-        lint_array!(UNNEEDED_FIELD_PATTERN, DUPLICATE_UNDERSCORE_ARGUMENT)
+        lint_array!(UNNEEDED_FIELD_PATTERN, DUPLICATE_UNDERSCORE_ARGUMENT, CLOSURE_CALLED_EARLY)
     }
 }
 
@@ -112,5 +124,9 @@ impl EarlyLintPass for MiscEarly {
                 }
             }
         }
+    }
+
+    fn check_expr(&mut self, cx: &EarlyContext, expr: &Expr) {
+
     }
 }
